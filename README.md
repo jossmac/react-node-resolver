@@ -14,21 +14,21 @@ yarn add react-node-resolver
 import NodeResolver from 'react-node-resolver';
 
 class ObfuscatedComponent extends Component {
-	render() {
-		return <div id="inaccessible-node" />;
-	}
+  render() {
+    return <div id="inaccessible-node" />;
+  }
 }
 
 class GroovyThing extends Component {
-	getNode = (ref) => {
-		console.log(ref); // <div id="inaccessible-node" />
-	}
+  getNode = (ref) => {
+    console.log(ref); // <div id="inaccessible-node" />
+  }
   render () {
-		return (
-			<NodeResolver innerRef={this.getNode}>
-				<ObfuscatedComponent />
-			</NodeResolver>
-		);
-	}
+    return (
+      <NodeResolver innerRef={this.getNode}>
+        <ObfuscatedComponent />
+      </NodeResolver>
+    );
+  }
 }
 ```
