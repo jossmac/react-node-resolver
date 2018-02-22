@@ -32,3 +32,10 @@ class GroovyThing extends Component {
   }
 }
 ```
+
+### Props
+
+| Property         | Type         | Description |
+| ---------------- | ------------ | ----------- |
+| `children`       | `Element`    | A single react Component |
+| `innerRef`       | `ElementRef` | Callback ref `ref => this.node = ref` |
