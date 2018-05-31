@@ -12,6 +12,11 @@ export default class NodeResolver extends Component<Props> {
   componentDidMount() {
     this.props.innerRef(findDOMNode(this));
   }
+  componentDidUpdate(prevProps: Props) {
+    if (prevProps.children !== this.props.children) {
+      this.props.innerRef(findDOMNode(this));
+    }
+  }
   componentWillUnmount() {
     this.props.innerRef(null);
   }
