@@ -16,7 +16,8 @@
   "jest": {
     "setupFiles": [
       "./jest.js"
-    ]
+    ],
+    "collectCoverageFrom": ["src/**/*.js"]
   },
   "repository": {
     "type": "git",
