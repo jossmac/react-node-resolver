@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import { mount } from 'enzyme';
-import NodeResolver from '../src/NodeResolver';
+import NodeResolver from '../src/index';
 
 const noop = () => {};
 const textContent = 'Some text content';
@@ -15,7 +15,7 @@ span.setAttribute('id', id);
 
 // mock component matching the created span
 class Mock extends Component {
-  render () { return <span id={id}>{textContent}</span>; }
+  render () { return <span id={id}>{this.props.text || textContent}</span>; }
 }
 
 describe('NodeResolver', () => {
@@ -42,10 +42,37 @@ describe('NodeResolver', () => {
 
     mount(
       <NodeResolver innerRef={r => { node = r; }}>
-        <Mock>{textContent}</Mock>
+        <Mock />
       </NodeResolver>
     );
 
     expect(node.isEqualNode(span)).toBe(true);
+  });
+
+  it('should update innerRef if children change', () => {
+    const innerRefSpy = jest.fn();
+    const wrapper = mount(
+      <NodeResolver innerRef={innerRefSpy}>{textContent}</NodeResolver>
+    );
+    expect(innerRefSpy).toHaveBeenCalledTimes(1);
+
+    wrapper.setProps({ children: 'AnotherText' });
+    wrapper.update();
+
+    expect(innerRefSpy).toHaveBeenCalledTimes(2);
+    expect(wrapper.text()).toEqual('AnotherText');
+  });
+
+  it('should remove reference if component is unmounted', () => {
+    const innerRefSpy = jest.fn();
+    const wrapper = mount(
+      <NodeResolver innerRef={innerRefSpy}>{textContent}</NodeResolver>
+    );
+    expect(innerRefSpy).toHaveBeenCalledTimes(1);
+
+    wrapper.unmount();
+
+    expect(innerRefSpy).toHaveBeenCalledTimes(2);
+    expect(innerRefSpy.mock.calls[1][0]).toEqual(null);
   });
 });
