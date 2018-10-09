@@ -2,6 +2,8 @@
 
 A generic technique for resolving the DOM node of any react component.
 
+[![Build Status](https://travis-ci.org/jossmac/react-node-resolver.svg?branch=master)](https://travis-ci.org/jossmac/react-node-resolver)
+
 ### Install
 
 ```bash

@@ -16,7 +16,8 @@
   "jest": {
     "setupFiles": [
       "./jest.js"
-    ]
+    ],
+    "collectCoverageFrom": ["src/**/*.js"]
   },
   "repository": {
     "type": "git",
@@ -53,6 +54,7 @@
     "flow-bin": "^0.65.0",
     "jest": "^22.2.2",
     "jest-cli": "^22.2.2",
+    "lint-staged": "^7.3.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },
