@@ -4,7 +4,7 @@ A generic technique for resolving the DOM node of any react component.
 
 [![Build Status](https://travis-ci.org/jossmac/react-node-resolver.svg?branch=master)](https://travis-ci.org/jossmac/react-node-resolver)
 
-### Alternate Solutions
+### Alternative Solutions
 
 Since creating this utility, more robust solutions have become available. Consider the following before using this package:
 
