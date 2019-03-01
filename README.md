@@ -4,6 +4,13 @@ A generic technique for resolving the DOM node of any react component.
 
 [![Build Status](https://travis-ci.org/jossmac/react-node-resolver.svg?branch=master)](https://travis-ci.org/jossmac/react-node-resolver)
 
+### Alternate Solutions
+
+Since creating this utility, more robust solutions have become available. Consider the following before using this package:
+
+- [React.forwardRef()](https://reactjs.org/docs/forwarding-refs.html)
+- [The render props pattern](https://reactjs.org/docs/render-props.html)
+
 ### Install
 
 ```bash
